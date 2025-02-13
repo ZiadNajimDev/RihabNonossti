@@ -6,6 +6,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/valentine.css" />
     <style>
+      /* General body styling */
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f9f9f9; /* Optional: Add a light background */
+      }
+
       /* Container for falling emojis */
       #emoji-container {
         position: fixed;
@@ -49,14 +62,34 @@
         cursor: pointer;
         z-index: 1000; /* Ensure the overlay is on top */
       }
+
+      /* Text styling */
+      #thankyou {
+        font-size: 24px;
+        margin-bottom: 20px; /* Space between text and button */
+      }
+
+      /* Button styling */
+      .answerButton {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: #ff6f61; /* Optional: Add a nice button color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .answerButton:hover {
+        background-color: #ff3b2f; /* Optional: Add a hover effect */
+      }
     </style>
   </head>
   <body>
-    <b> 🌚 🌝</b>
-    <div id="thankyou"><b>Kanmot elik A Hyati o Lah ikhlina dima Fr7anin</b></div>
-    
+    <div id="thankyou"><b>Kanmot elik A Hyati o Lah ikhlina dima Fr7anin and as we know we dont need Valantines day to make eachother happy Every new day is our Valantines Day🌚🌝</b></div>
     <audio id="happy" src="Cute.mp3" style="display: none"></audio>
-    <Button class="answerButton" onclick="location.href='Borgir.html'">Brki Hna Agin😭</Button>
+    <Button class="answerButton" onclick="location.href='Borgir.html'">Brki Hna😭</Button>
 
     <!-- Container for falling emojis -->
     <div id="emoji-container"></div>
