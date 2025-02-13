@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Thank you</title>
-        <link rel="stylesheet" href="css/lastpage.css" />
-        <link rel="stylesheet" href="css/valentine.css" />
-    </head>
-    <body>
-        <div id="thankyou"><b>3iiiiiiiiiiiW😭</b></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank you</title>
+    <link rel="stylesheet" href="css/lastpage.css" />
+    <link rel="stylesheet" href="css/valentine.css" />
+    <style>
+      /* Overlay styling */
+      #unmuteOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="thankyou"><b>3iiiiiiiiiiiW😭</b></div>
 
-        <img id="rizz" src="bibi.jpg" alt="rizzler god" style="width: 80%; max-width: 100%; height: auto; display: block; margin: 0 auto;" />
-        <br />
-        <audio id="happy" src="Borgir.mp3" style="display: none"></audio>
-        
-        <script>
-            const happyAudio = document.getElementById('happy');
-            
-            happyAudio.play();
-            happyAudio.addEventListener('ended', function() {
-                kissAudio.play();
-            });
-        </script>
-    </body>
+    <img id="rizz" src="bibi.jpg" alt="rizzler god" style="width: 80%; max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+    <br />
+    <audio id="happy" src="Borgir.mp3" style="display: none"></audio>
+
+    <!-- Overlay for unmute -->
+    <div id="unmuteOverlay">Tap to Unmute a Huby 🔊</div>
+
+    <script>
+      const happyAudio = document.getElementById('happy');
+      const unmuteOverlay = document.getElementById('unmuteOverlay');
+
+      // Play audio and hide overlay when the user taps
+      unmuteOverlay.addEventListener('click', () => {
+        happyAudio.play();
+        unmuteOverlay.style.display = 'none'; // Hide the overlay
+      });
+
+      // Loop the audio when it ends
+      happyAudio.addEventListener('ended', function () {
+        happyAudio.play();
+      });
+    </script>
+  </body>
 </html>
