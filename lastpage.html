@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/flower.css" />
+    <link rel="stylesheet" href="css/valentine.css" />
+    <style>
+      /* Container for falling emojis */
+      #emoji-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Ensure clicks pass through to elements below */
+        overflow: hidden;
+        z-index: -1; /* Place behind all other elements */
+      }
+
+      /* Falling emoji styling */
+      .falling-emoji {
+        position: absolute;
+        top: -10%;
+        font-size: 24px;
+        animation: fall linear infinite;
+      }
+
+      /* Keyframes for falling animation */
+      @keyframes fall {
+        to {
+          transform: translateY(110vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="thankyou"><b>Kanmot elik A Hyati o Lah ikhlik lia yarbi. </b></div>
+    <audio id="happy" src="Cute.mp3" style="display: none"></audio>
+    <Button class="answerButton" onclick="location.href='Borgir.html'">Brki Hna Agin😭</Button>
+
+    <!-- Container for falling emojis -->
+    <div id="emoji-container"></div>
+
+    <script>
+      const happyAudio = document.getElementById('happy');
+      const kissAudio = document.getElementById('kiss');
+      
+      happyAudio.play();
+      happyAudio.addEventListener('ended', function() {
+        kissAudio.play();
+      });
+      
+      kissAudio.addEventListener('ended', function() {
+        happyAudio.play();
+      });
+      // Function to create falling emojis
+      function createFallingEmojis() {
+        const emojis = ['❤️', '🌸', '🌺', '💐', '🥀', '🌷', '💖', '🌼']; // Add your desired emojis here
+        const container = document.getElementById('emoji-container');
+
+        setInterval(() => {
+          const emoji = document.createElement('div');
+          emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+          emoji.classList.add('falling-emoji');
+
+          // Randomize horizontal position
+          emoji.style.left = `${Math.random() * 100}vw`;
+
+          // Randomize animation duration for a more natural effect
+          emoji.style.animationDuration = `${Math.random() * 3 + 2}s`;
+
+          container.appendChild(emoji);
+
+          // Remove emoji after it falls out of view
+          setTimeout(() => {
+            emoji.remove();
+          }, 5000); // Adjust based on animation duration
+        }, 500); // Adjust the interval for more/less emojis
+      }
+
+      createFallingEmojis();
+    </script>
+  </body>
+</html>
